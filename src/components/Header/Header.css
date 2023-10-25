@@ -1,0 +1,57 @@
+.header__logo {
+    font-weight: 500;
+    font-size: 1.25rem; /* 20px / 16px = 1.25rem */
+}
+
+.header__wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__nav {
+    display: flex;
+    list-style: none;
+    cursor: pointer;
+}
+
+.header__nav li {
+    margin-left: 25px;
+    transition: opacity 500ms ease;
+}
+
+.header__nav li:hover {
+    opacity: 0.5;
+}
+
+.header__presentation {
+    margin: 50px 0;
+    width: 100%;
+    height: 500px;
+    background: url('../../images/logo1.jpeg') no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-blend-mode: multiply; /* Позволяет накладывать сверху множественные фоны. */
+    background-color: #bcbcbc;
+    position: relative;
+}
+
+.header__presentation::after {
+    content: 'Лучшие товары для вашего дома';
+    width: 300px;
+    font-size: 2.5rem; /* 40px / 16px = 2.5rem */
+    font-weight: 500px;
+    color: #fff;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+}
+.header__presentation::before {
+    content: 'по низким ценам';
+    width: 300px;
+    font-size: 1rem; /* 16px / 16px = 1rem */
+    font-weight: 300;
+    color: #fff;
+    position: absolute;
+    top: 250px;
+    left: 50px;
+}
