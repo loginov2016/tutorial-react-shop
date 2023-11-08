@@ -1,0 +1,35 @@
+.order {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 70px 1fr 70px 70px;
+    align-items: center;
+    justify-items: center;
+    /* margin-top: 10px; */
+    grid-column-gap: 10px;
+    align-items: center;
+}
+
+.order img {
+    max-width: 70px;
+    max-height: 70px;
+    
+    /* float: left; */
+    /* margin-right: 20px; */
+    /* object-fit: cover;
+    scale: 0.9;
+    object-position: center center;
+    border-radius: 50%; */
+}
+
+.order-img {
+    align-self: center;
+}
+
+.order h3 {
+    font-size: 1.25rem /* 20px */
+}
+
+.order p {
+    color: #797979;
+
+}

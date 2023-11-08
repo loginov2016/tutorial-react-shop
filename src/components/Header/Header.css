@@ -6,6 +6,7 @@
 .header__wrap {
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .header__nav {
@@ -21,6 +22,53 @@
 
 .header__nav li:hover {
     opacity: 0.5;
+}
+
+.shop-cart-button {
+    position: absolute;
+    top: 2px;
+    right: 265px;
+    /* fill: yellow; */
+    cursor: pointer;
+    transition: color, transform 500ms ease;
+}
+
+.shop-cart-button:hover,
+.shop-cart-button.active {
+    color: #dc3d3d;
+    transform: scale(1.5);
+}
+
+.shop-cart {
+    display: grid;
+    grid-template-columns: minmax(200px, auto);
+    grid-row-gap: 5px;
+    width: 450px;
+    /* min-height: 200px; */
+    background: #eeeeee;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    z-index: 999;
+    -webkit-box-shadow: 4px 5px 15px -7px #606060;
+    box-shadow: 4px 5px 15px -7px #606060;
+}
+
+.empty h2 {
+    font-size: 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.delete-icons {
+    color: #dc3d3d;
+    cursor: pointer;
+    transition: color, transform 500ms ease;
+}
+
+.delete-icons:hover {
+    color: #d83030;
+    transform: scale(1.5);
 }
 
 .header__presentation {

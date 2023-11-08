@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
@@ -8,12 +8,13 @@ import '../Footer/Footer.css';
 import Items from "../Items/Items";
 
 function App() {
-  const state = { goods: [
+  // eslint-disable-next-line
+  const [goods, setGoods] = useState([
     {
       id: 1,
       title: 'СТУЛ ДЕНВЕР МАГНЕТИКА 30/МК ЧЕРНЫЙ',
       img: 'chair-denver.png',
-      description: 'Подходит в большинство современных интерьеров, начиная с классического оформления кухни и гостиной, заканчивая ультрасовременными офисами и салонами красоты в стиле лофт и хай-тек.',
+      description: 'Подходит в большинство современных интерьеров.',
       category: 'chairs',
       price: '3999'
     },
@@ -27,11 +28,11 @@ function App() {
     },
     {
       id: 3,
-      title: 'СТУЛ КРИСТАЛЛ БЕЖЕВЫЙ 002',
-      img: 'chair-cristal.jpeg',
-      description: 'Станет идеальным вариантом для кухни или гостиной.',
+      title: 'Стул Орлеан Хром Бежевый',
+      img: 'chair-orlean.jpeg',
+      description: 'Прослужит Вам долгие годы, не требуя особого ухода.',
       category: 'chairs',
-      price: '3033'
+      price: '2390'
     },
     {
       id: 4,
@@ -50,12 +51,34 @@ function App() {
       price: '10867'
     },
     
-  ] };
+  ]);
+
+  const [orders, setOrders] = useState([]);
+
+  function onAddToOrder(itemProduct) {
+    //const newArr = orders.filter( (el) => el.id !== itemProduct.id );
+    let isInArray = false;
+    orders.forEach( el => {
+      if(el.id === itemProduct.id) {
+        isInArray = true;
+      }
+    })
+
+    if(!isInArray) {
+      setOrders([...orders, itemProduct]);
+    }
+  }
+
+  function onDeleteOrder(id) {
+    console.log(id);
+  }
+
+  useEffect(() => console.log(orders), [orders]);
 
   return (
     <div className="wrapper">
-      <Header />
-      <Items goods = {state.goods}/>
+      <Header orders={orders} onDelete={onDeleteOrder} />
+      <Items goods = {goods} onAddToOrder={onAddToOrder} />
       <Footer />
     </div>
   );
